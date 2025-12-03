@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bravemaniagames.com.au/sitemap.xml
