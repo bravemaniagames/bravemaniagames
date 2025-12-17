@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bravemania Games - ARK Survival Revolution</title>
+    
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bravemania Games - Official ARK Survival Ascended servers. Enhanced rates, tameable alphas, all official maps cluster. PvE friendly community serving Australia since 2015.">
+    <meta name="keywords" content="ARK Survival Ascended, ARK servers, PvE servers, tameable alphas, ARK cluster, Bravemania Games, ARK Australia, ARK gaming, ARK ANZ">
+    <meta name="author" content="Bravemania Games">
+    <meta name="theme-color" content="#071207">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bravemaniagames.com.au/">
+    <meta property="og:title" content="Bravemania Games - ARK Survival Revolution">
+    <meta property="og:description" content="Experience the ultimate ARK adventure on our official-like PvE servers. Enhanced rates, tameable alphas, and a thriving community await!">
+    <meta property="og:image" content="https://bravemaniagames.com.au/bravemania-manticore.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bravemania Games - ARK Survival Revolution">
+    <meta name="twitter:description" content="Experience the ultimate ARK adventure on our official-like PvE servers. Enhanced rates, tameable alphas, and a thriving community await!">
+    <meta name="twitter:image" content="https://bravemaniagames.com.au/bravemania-manticore.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b35;
+            --secondary: #00d9ff;
+            --accent: #ffd23f;
+            --dark: #0d1f0d;
+            --darker: #071207;
+            --light: #ffffff;
+            --glow: rgba(0, 217, 255, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 210, 63, 0.08) 0%, transparent 60%);
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px);
+        }
+
+        /* Particle effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) translateX(0);
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) translateX(100px);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 40px;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 32px;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .hero-logo-left,
+        .hero-logo-right {
+            width: 180px;
+            height: auto;
+            animation: fadeInScale 1s ease-out;
+            filter: drop-shadow(0 10px 30px rgba(255, 107, 53, 0.4));
+        }
+
+        .hero-logo-right {
+            filter: drop-shadow(0 10px 30px rgba(0, 217, 255, 0.4));
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            background: rgba(255, 107, 53, 0.15);
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(60px, 10vw, 140px);
+            line-height: 0.9;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--light) 0%, var(--secondary) 50%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.4s both, textGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from {
+                filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.4));
+            }
+            to {
+                filter: drop-shadow(0 0 40px rgba(255, 107, 53, 0.6));
+            }
+        }
+
+        .hero-subtitle {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(24px, 4vw, 48px);
+            color: var(--accent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease-out 1s both;
+        }
+
+        .feature-tag {
+            padding: 12px 30px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-tag:hover {
+            background: rgba(0, 217, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+
+        .btn {
+            padding: 18px 50px;
+            font-family: 'Teko', sans-serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff8c42 100%);
+            color: var(--light);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 217, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+        }
+
+        /* Server Info Section */
+        .server-info {
+            padding: 100px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(48px, 8vw, 80px);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .server-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .server-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .server-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .server-card:hover::before {
+            opacity: 1;
+        }
+
+        .server-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.3);
+        }
+
+        .server-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .server-card h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: var(--light);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .server-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .server-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 15px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .detail-icon {
+            color: var(--secondary);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h4 {
+            font-family: 'Teko', sans-serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .feature-item p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 100px 40px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.05) 100%);
+            position: relative;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .social-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(0, 217, 255, 0.05) 100%);
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            text-decoration: none;
+            color: var(--light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-card:hover::before {
+            left: 100%;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 50px rgba(0, 217, 255, 0.4);
+        }
+
+        .social-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+        }
+
+        .social-card h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .social-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--darker);
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 48px;
+            letter-spacing: 4px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero-logos {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero-logo-left,
+            .hero-logo-right {
+                width: 120px;
+            }
+
+            .hero h1 {
+                letter-spacing: 4px;
+            }
+
+            .hero-subtitle {
+                letter-spacing: 2px;
+            }
+
+            .hero-features {
+                gap: 10px;
+            }
+
+            .feature-tag {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .server-grid,
+            .features-grid,
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                letter-spacing: 3px;
+            }
+
+            .server-info,
+            .community {
+                padding: 60px 20px;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"></div>
+    <div class="bg-pattern"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">BRAVEMANIA GAMES</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servers">Servers</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-logos">
+                <img src="https://raw.githubusercontent.com/bravemania/bravemaniagames/main/bravemania-manticore.jpg" alt="Bravemania Manticore" class="hero-logo-left">
+                <img src="https://raw.githubusercontent.com/bravemania/bravemaniagames/main/ark-logo.png" alt="ARK Survival Ascended" class="hero-logo-right">
+            </div>
+            <div class="hero-badge">🦖 Surviving Since 2015</div>
+            <h1>BRAVEMANIA<br>REVOLUTION</h1>
+            <div class="hero-subtitle">ARK Survival Ascended</div>
+            <p class="hero-description">
+                Experience the ultimate ARK adventure on our official-like PvE servers. Enhanced rates, tameable alphas, and a thriving community await. Every player makes a difference!
+            </p>
+            <div class="hero-features">
+                <div class="feature-tag">🌍 All Official Maps Cluster</div>
+                <div class="feature-tag">⚡ 5X Harvest Rates</div>
+                <div class="feature-tag">🦕 Tameable Alphas</div>
+                <div class="feature-tag">🎮 Cross-Platform</div>
+                <div class="feature-tag">🗨️ Cross-Map Chat</div>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://discord.gg/t2pMXtSYDU" class="btn btn-primary" target="_blank">
+                    <span>🎮 Join Discord</span>
+                </a>
+                <a href="#servers" class="btn btn-secondary">
+                    <span>📋 View Servers</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Info Section -->
+    <section class="server-info" id="servers">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Our Servers</h2>
+            <p class="section-subtitle scroll-reveal">Join the Bravemania Revolution cluster and experience ARK like never before</p>
+            
+            <div class="server-grid">
+                <div class="server-card scroll-reveal">
+                    <div class="server-icon">🎯</div>
+                    <h3>BraveRevo PvE Cluster</h3>
+                    <p>Our flagship server featuring all official maps with enhanced gameplay and community-driven features.</p>
+                    <div class="server-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span>Australia/New Zealand (Low Ping)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⚙️</span>
+                            <span>2xXP/5xH/10xT/50xB Rates</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎮</span>
+                            <span>Steam + Epic Games</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card scroll-reveal">
+                    <div class="server-icon">🌟</div>
+                    <h3>Vanilla Enhanced</h3>
+                    <p>Classic ARK experience with quality-of-life improvements and no wipes. Your progress is permanent!</p>
+                    <div class="server-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🏝️</span>
+                            <span>All Official Maps Available</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔄</span>
+                            <span>No Wipes - Keep Forever</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🦖</span>
+                            <span>Tameable Alpha Dinos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card scroll-reveal">
+                    <div class="server-icon">🎊</div>
+                    <h3>Community Features</h3>
+                    <p>Enjoy ARK events, friendly admins, and a supportive community that values every member.</p>
+                    <div class="server-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🎪</span>
+                            <span>Regular ARK Events</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👥</span>
+                            <span>Friendly Admin Team</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💬</span>
+                            <span>Cross-Map Group Chat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title scroll-reveal" style="font-size: 48px; margin-top: 60px;">Why Join Us?</h3>
+            <div class="features-grid">
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">🗺️</div>
+                    <h4>Complete Cluster</h4>
+                    <p>Access to ALL official maps including Island, Scorched Earth, Aberration, Extinction, and more</p>
+                </div>
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Balanced Rates</h4>
+                    <p>Enhanced but not overpowered - experience the thrill without the extreme grind</p>
+                </div>
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">🛡️</div>
+                    <h4>PvE Focused</h4>
+                    <p>Cooperative gameplay with friendly community members and helpful admins</p>
+                </div>
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Sydney-Based</h4>
+                    <p>Optimal latency for AU/NZ players and great ping for OCE/Asia region</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Join Our Community</h2>
+            <p class="section-subtitle scroll-reveal">Connect with fellow survivors across multiple platforms</p>
+            
+            <div class="social-links">
+                <a href="https://discord.gg/t2pMXtSYDU" class="social-card scroll-reveal" target="_blank" rel="noopener noreferrer">
+                    <div class="social-header">
+                        <div class="social-icon">💬</div>
+                        <div>
+                            <h3>Primary Discord</h3>
+                            <p style="color: var(--secondary); margin: 0;">Main Community Hub</p>
+                        </div>
+                    </div>
+                    <p>Join our primary Discord server for server updates, community events, support, and to connect with other players. This is your main hub for everything Bravemania!</p>
+                </a>
+
+                <a href="https://discord.gg/W3vCKAN3aU" class="social-card scroll-reveal" target="_blank" rel="noopener noreferrer">
+                    <div class="social-header">
+                        <div class="social-icon">🎮</div>
+                        <div>
+                            <h3>Secondary Discord</h3>
+                            <p style="color: var(--secondary); margin: 0;">Alternative Community</p>
+                        </div>
+                    </div>
+                    <p>Our backup Discord server for additional community interaction and overflow. Connect with even more survivors and expand your gaming network!</p>
+                </a>
+
+                <a href="https://www.facebook.com/BravemaniaRevolutionArk" class="social-card scroll-reveal" target="_blank" rel="noopener noreferrer">
+                    <div class="social-header">
+                        <div class="social-icon">📘</div>
+                        <div>
+                            <h3>Facebook Page</h3>
+                            <p style="color: var(--secondary); margin: 0;">Official Updates</p>
+                        </div>
+                    </div>
+                    <p>Follow our Facebook page for server announcements, community highlights, and the latest ARK news. Stay connected with Bravemania Revolution!</p>
+                </a>
+
+                <a href="https://www.facebook.com/groups/1159545375755087/" class="social-card scroll-reveal" target="_blank" rel="noopener noreferrer">
+                    <div class="social-header">
+                        <div class="social-icon">👥</div>
+                        <div>
+                            <h3>Facebook Group</h3>
+                            <p style="color: var(--secondary); margin: 0;">Community Discussion</p>
+                        </div>
+                    </div>
+                    <p>Join our Facebook group to share your experiences, screenshots, tips, and connect with the community outside of Discord!</p>
+                </a>
+
+                <a href="https://steamcommunity.com/groups/bravemaniawarriors" class="social-card scroll-reveal" target="_blank" rel="noopener noreferrer">
+                    <div class="social-header">
+                        <div class="social-icon">🎯</div>
+                        <div>
+                            <h3>Steam Group</h3>
+                            <p style="color: var(--secondary); margin: 0;">Brave's Warriors & Amazons</p>
+                        </div>
+                    </div>
+                    <p>Join our Steam community group for direct server access, Steam-specific announcements, and to connect with PC players in the Bravemania family!</p>
+                </a>
+
+                <a href="https://bravemaniagames.com.au" class="social-card scroll-reveal">
+                    <div class="social-header">
+                        <div class="social-icon">🌐</div>
+                        <div>
+                            <h3>About Us</h3>
+                            <p style="color: var(--secondary); margin: 0;">Learn More</p>
+                        </div>
+                    </div>
+                    <p>Bravemania Games is powered by players like you. Learn about our mission, values, and how your support keeps our community thriving!</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">BRAVEMANIA GAMES</div>
+            <p class="footer-text">
+                Powered by players like you. Every survivor makes a difference in our community. 
+                Join us today and be part of the revolution!
+            </p>
+            <div class="footer-links">
+                <a href="https://discord.gg/t2pMXtSYDU" target="_blank">Discord</a>
+                <a href="https://www.facebook.com/BravemaniaRevolutionArk" target="_blank">Facebook</a>
+                <a href="https://steamcommunity.com/groups/bravemaniawarriors" target="_blank">Steam Group</a>
+                <a href="https://bravemaniagames.com.au">About</a>
+            </div>
+            <div class="copyright">
+                © 2025 Bravemania Games. All rights reserved. | Surviving since 2015
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create particle effect
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        window.addEventListener('load', () => {
+            createParticles();
+            revealOnScroll();
+        });
+
+        window.addEventListener('scroll', revealOnScroll);
+    </script>
+</body>
+</html>
