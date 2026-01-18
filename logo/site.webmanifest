@@ -1,6 +1,11 @@
 {
   "name": "Bravemania Games - ARK Survival Revolution",
   "short_name": "Bravemania",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#071207",
+  "background_color": "#071207",
   "icons": [
     {
       "src": "/logo/android-chrome-192x192.png?v=20260113",
@@ -13,10 +18,6 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#071207",
-  "background_color": "#071207",
-  "display": "standalone",
-  "start_url": "/",
   "description": "Official ARK Survival Ascended servers. Enhanced rates, tameable alphas, PvE friendly community."
 }
 
