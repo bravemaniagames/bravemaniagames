@@ -680,7 +680,22 @@
             background-clip: text;
             margin-bottom: 20px;
         }
-
+        .footer-logo-image{
+            display:flex;
+            justify-content:center;
+            margin: 0 auto 18px;
+        }
+        .footer-logo-img{
+            width: 300px;
+            max-width: 80vw;
+            height:auto;
+            border-radius: 14px;
+            filter: drop-shadow(0 12px 35px rgba(255, 107, 53, 0.35));
+        }
+        @media (max-width: 768px){
+            .footer-logo-img{ width: 200px; }
+        }
+            
         .footer-text {
             color: rgba(255, 255, 255, 0.6);
             margin-bottom: 30px;
@@ -1024,6 +1039,10 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
+                            <div class="footer-logo-image">
+                <img src="bravemania-manticore-footer-300.jpg" alt="Bravemania Manticore logo" class="footer-logo-img" loading="lazy" decoding="async">
+            </div>
+                
             <div class="footer-logo">BRAVEMANIA GAMES</div>
             <p class="footer-text">
                 Powered by players like you. Every survivor makes a difference in our community. 
