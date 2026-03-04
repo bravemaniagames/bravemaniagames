@@ -34,7 +34,8 @@
     "https://discord.gg/Cxjp4RVSW9",
     "https://www.facebook.com/BravemaniaRevolutionArkSurvivalAscended/",
     "https://www.youtube.com/@BRAVEMANIAGAMES",
-    "https://steamcommunity.com/groups/bravemaniawarriors"
+    "https://steamcommunity.com/groups/bravemaniawarriors",
+    "https://ko-fi.com/bravemaniagames"
   ]
 }
 </script>
@@ -856,6 +857,30 @@
             }
         }
 
+        /* Support Us card accent */
+        .social-card-donate {
+            border-color: rgba(255, 210, 63, 0.4);
+            background: linear-gradient(135deg, rgba(255, 210, 63, 0.15) 0%, rgba(255, 107, 53, 0.08) 100%);
+        }
+
+        .social-card-donate:hover {
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(255, 210, 63, 0.35);
+        }
+
+        .social-icon-donate {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%) !important;
+            box-shadow: 0 10px 30px rgba(255, 210, 63, 0.4) !important;
+        }
+
+        .footer-link-donate {
+            color: var(--accent) !important;
+        }
+
+        .footer-link-donate:hover {
+            text-shadow: 0 3px 18px rgba(255, 210, 63, 0.3) !important;
+        }
+
         /* Scroll animations */
         .scroll-reveal {
             opacity: 0;
@@ -882,7 +907,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#servers">Servers</a></li>
                 <li><a href="#community">Community</a></li>
-                <li><a href="mailto:info@bravemaniagames.com.au">Contact Us</a></li>
+                <li><a href="mailto:info@bravemaniaphotography.com.au">Contact Us</a></li>
+                <li><a href="https://ko-fi.com/bravemaniagames" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">Support Us</a></li>
             </ul>
         </div>
     </nav>
@@ -1101,7 +1127,7 @@
                     <p>Bravemania Games is powered by players like you. Learn about our mission, values, and how your support keeps our community thriving!</p>
                 </a>
 
-                <a href="mailto:info@bravemaniagames.com.au" class="social-card scroll-reveal">
+                <a href="mailto:info@bravemaniaphotography.com.au" class="social-card scroll-reveal">
                     <div class="social-header">
                         <div class="social-icon">✉️</div>
                         <div>
@@ -1110,6 +1136,17 @@
                         </div>
                     </div>
                     <p>Have questions, feedback, or want to partner with us? Reach out via email and we'll get back to you as soon as possible!</p>
+                </a>
+
+                <a href="https://ko-fi.com/bravemaniagames" class="social-card social-card-donate scroll-reveal" target="_blank" rel="noopener noreferrer">
+                    <div class="social-header">
+                        <div class="social-icon social-icon-donate">❤️</div>
+                        <div>
+                            <h3>Support Us</h3>
+                            <p style="color: var(--accent); margin: 0;">Fuel the Revolution</p>
+                        </div>
+                    </div>
+                    <p>Keep our servers running and our community thriving! Your support funds game development, server infrastructure, and exclusive member perks. Every contribution makes a difference!</p>
                 </a>
             </div>
         </div>
@@ -1123,7 +1160,7 @@
             </div>
                 
             <div class="footer-logo">BRAVEMANIA GAMES</div>
-            <a href="mailto:info@bravemaniagames.com.au" class="footer-email">info@bravemaniagames.com.au</a>
+            <a href="mailto:info@bravemaniaphotography.com.au" class="footer-email">info@bravemaniaphotography.com.au</a>
             <p class="footer-text">
                 Powered by players like you. Every survivor makes a difference in our community. 
                 Join us today and be part of the revolution!
@@ -1133,7 +1170,8 @@
                 <a href="https://www.facebook.com/BravemaniaRevolutionArkSurvivalAscended" target="_blank">Facebook</a>
                 <a href="https://steamcommunity.com/groups/bravemaniawarriors" target="_blank">Steam Group</a>
                 <a href="https://bravemaniagames.com.au">About</a>
-                <a href="mailto:info@bravemaniagames.com.au">Contact Us</a>
+                <a href="mailto:info@bravemaniaphotography.com.au">Contact Us</a>
+                <a href="https://ko-fi.com/bravemaniagames" target="_blank" rel="noopener noreferrer" class="footer-link-donate">Support Us</a>
             </div>
             <div class="copyright">
                 © 2026 Bravemania Games. All rights reserved. | Surviving since 2015
@@ -1177,21 +1215,4 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Initialize
-        window.addEventListener('load', () => {
-            createParticles();
-            revealOnScroll();
-        });
-
-        window.addEventListener('scroll', revealOnScroll);
-    </script>
-</body>
-</html>
+                    ta
