@@ -3,21 +3,12 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://bravemaniagames.com.au/</loc>
-    <lastmod>2026-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-30</lastmod>
     <image:image>
       <image:loc>https://bravemaniagames.com.au/bravemania-manticore.jpg</image:loc>
-      <image:title>Bravemania Games Logo</image:title>
-      <image:caption>Bravemania Games - ARK Survival Ascended PvE Community</image:caption>
     </image:image>
-  </url>
-        <url>
-  <loc>https://bravemaniagames.com.au/facebook.html</loc>
-  <lastmod>2026-03-03</lastmod>
-  </url>
-  <url>
-  <loc>https://bravemaniagames.com.au/discord.html</loc>
-  <lastmod>2026-03-03</lastmod>       
+    <image:image>
+      <image:loc>https://bravemaniagames.com.au/ark-logo.png</image:loc>
+    </image:image>
   </url>
 </urlset>
