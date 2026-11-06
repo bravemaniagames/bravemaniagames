@@ -3,12 +3,19 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://bravemaniagames.com.au/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <image:image>
       <image:loc>https://bravemaniagames.com.au/bravemania-manticore.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://bravemaniagames.com.au/ark-logo.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://bravemaniagames.com.au/servers/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <image:image>
+      <image:loc>https://bravemaniagames.com.au/servers/assets/hero-range-2400.webp</image:loc>
     </image:image>
   </url>
 </urlset>

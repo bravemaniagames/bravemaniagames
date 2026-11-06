@@ -1,0 +1,393 @@
+/* Shared by the homepage and Servers page: creature layers, sound button and phone menu */
+
+.creature {
+    position: absolute;
+    aspect-ratio: 16 / 9;
+    pointer-events: none;
+}
+
+.creature img,
+.creature canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.creature canvas {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.creature.is-live canvas {
+    opacity: 1;
+}
+
+.creature img {
+    transition: opacity 0.5s ease;
+}
+
+.creature.is-live img {
+    opacity: 0;
+}
+
+/* A creature being fitted into clear space stays out of the layout until its place is known, then fades in.
+   Appearing, rather than moving, keeps the page free of layout shift. */
+.creature.is-fitting {
+    display: none;
+}
+
+.creature.fit-in {
+    animation: creature-fade-in 0.6s ease both;
+}
+
+@keyframes creature-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* The source video stays in the page so Safari keeps decoding it, but is never seen */
+.creature-source {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Sound button */
+.sound-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: none;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 14px;
+    font: 700 15px/1 'Rajdhani', sans-serif;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 210, 63, 0.55);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.sound-toggle[hidden] {
+    display: none;
+}
+
+.sound-toggle:hover {
+    background: rgba(255, 210, 63, 0.18);
+}
+
+.sound-toggle:focus-visible,
+.menu-toggle:focus-visible {
+    outline: 3px solid #ffd23f;
+    outline-offset: 3px;
+}
+
+.sound-toggle svg {
+    width: 20px;
+    height: 20px;
+    flex: none;
+}
+
+.sound-toggle .waves {
+    display: none;
+}
+
+.sound-toggle .mute {
+    display: inline;
+}
+
+.sound-toggle[aria-pressed="true"] {
+    color: #140a03;
+    background: #ffd23f;
+    border-color: #ffd23f;
+}
+
+.sound-toggle[aria-pressed="true"] .waves {
+    display: inline;
+}
+
+.sound-toggle[aria-pressed="true"] .mute {
+    display: none;
+}
+
+.nav-links {
+    margin-left: auto;
+}
+
+.nav-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: none;
+    margin-left: 24px;
+}
+
+/* Phone menu. The button only appears when JavaScript can run it; otherwise the links stay visible. */
+.menu-toggle {
+    display: none;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 107, 53, 0.6);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu-toggle svg {
+    width: 22px;
+    height: 22px;
+}
+
+.menu-toggle .icon-close,
+.menu-toggle[aria-expanded="true"] .icon-open {
+    display: none;
+}
+
+.menu-toggle[aria-expanded="true"] .icon-close {
+    display: block;
+}
+
+nav .logo {
+    white-space: nowrap;
+}
+
+/* Brand name with a small game mark beside it, no divider between them. The name stays the larger, leading element. */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: none;
+}
+
+.brand-game {
+    display: block;
+    width: auto;
+    height: 64px;
+    box-sizing: content-box;
+}
+
+/* Keeps the links on one row and holds the button's space while fonts and script load, so the nav doesn't jump */
+nav .nav-links a {
+    white-space: nowrap;
+}
+
+@media (min-width: 769px) {
+    .nav-tools {
+        min-width: 122px;
+        justify-content: flex-end;
+    }
+}
+
+@media (min-width: 1121px) {
+    nav .nav-links {
+        flex-wrap: nowrap;
+    }
+
+    /* Room for the larger game mark without a taller bar */
+    body > nav {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+/* Narrower laptops: the full link row, the larger game mark and the sound button share one line, so the links
+   sit a little closer together and keep a clear gap from the mark, with nothing pushed past the screen edge */
+@media (min-width: 1121px) and (max-width: 1279.98px) {
+    body > nav {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    nav .nav-content {
+        gap: 12px;
+    }
+
+    nav .nav-links {
+        column-gap: 18px;
+        padding-left: 20px;
+    }
+
+    nav .nav-links a {
+        font-size: 15px;
+    }
+
+    .brand-game {
+        height: 58px;
+    }
+}
+
+/* Homepage Manticore turned to face the heading. The approved animation is only mirrored, not altered. */
+.creature--mirror img,
+.creature--mirror canvas {
+    transform: scaleX(-1);
+}
+
+@media (max-width: 1120px) {
+    nav {
+        padding: 12px 24px;
+    }
+
+    nav .logo {
+        font-size: 26px;
+    }
+
+    .brand-game {
+        height: 48px;
+    }
+
+    nav .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 4px 20px;
+    }
+
+    nav .nav-links a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav .nav-content {
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    nav {
+        padding: 8px 20px;
+    }
+
+    nav .logo {
+        font-size: 24px;
+    }
+
+    .brand {
+        gap: 12px;
+    }
+
+    .brand-game {
+        height: 46px;
+    }
+
+    .nav-tools {
+        margin-left: 0;
+        gap: 6px;
+    }
+
+    .sound-toggle {
+        padding: 0;
+        width: 44px;
+    }
+
+    .sound-toggle-text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    nav .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        order: 3;
+        width: 100%;
+        gap: 2px 18px;
+    }
+
+    nav .nav-links a {
+        display: inline-block;
+        padding: 10px 0;
+        font-size: 14px;
+    }
+
+    .menu-ready .menu-toggle {
+        display: inline-flex;
+    }
+
+    .menu-ready nav .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 6px 0 4px;
+        border-top: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .menu-ready nav .nav-links.is-open {
+        display: flex;
+    }
+
+    .menu-ready nav .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 12px 2px;
+        font-size: 15px;
+    }
+
+    .menu-ready nav .nav-links a::after {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    nav {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    nav .logo {
+        font-size: 21px;
+        letter-spacing: 2px;
+    }
+
+    .brand-game {
+        height: 42px;
+    }
+
+    .brand {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 350px) {
+    nav .logo {
+        font-size: 17px;
+        letter-spacing: 1.5px;
+    }
+
+    .brand-game {
+        height: 34px;
+    }
+
+    .nav-tools {
+        gap: 4px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .creature.fit-in {
+        animation: none;
+    }
+
+    .creature canvas,
+    .creature img,
+    .sound-toggle {
+        transition: none;
+    }
+}
